@@ -22,7 +22,7 @@ namespace Business.Concrete
 
         public List<Car> GetById()
         {
-            return _carDal.GetById(1);
+            throw new NotImplementedException();
         }
     }
 }

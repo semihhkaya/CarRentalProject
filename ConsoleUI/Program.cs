@@ -14,13 +14,6 @@ namespace ConsoleUI
             {
                 Console.WriteLine(car.DailyPrice);
             }
-
-            CarManager carManager2 = new CarManager(new InMemoryCarDal());
-
-            foreach (var carId in carManager2.GetById())
-            {
-                Console.WriteLine(carId.DailyPrice + " 1.Arabanın Günlük Fiyatını Yazdırır");
-            }
         }
     }
 }
