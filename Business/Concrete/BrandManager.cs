@@ -10,7 +10,7 @@ namespace Business.Concrete
     public class BrandManager : IBrandService
     {
         IBrandDal _brandDal; //Dependency Injection
-        public BrandManager(IBrandDal brandDal) //Dependency Injection
+        public BrandManager(IBrandDal brandDal) //Dependency Injection //Consructor
         {
             _brandDal = brandDal;
         }
@@ -29,6 +29,11 @@ namespace Business.Concrete
         public List<Brand> GetAll()
         {
             return _brandDal.GetAll();
+        }
+
+        public List<Brand> GetBrandById(int id)
+        {
+            return _brandDal.GetAll(b => b.BrandId == id);
         }
 
         public void Update(Brand brand)
