@@ -22,12 +22,12 @@ namespace Business.Concrete
         {
             if (car.CarName.Length < 2)
             {
-                return new ErrorResult(Messages.CarNameMinTwoCharacter);
+                return new ErrorResult(Messages.CarNameInValid);
             }
 
             if (car.DailyPrice<0)
             {
-                return new ErrorResult(Messages.DailyPriceBiggerThanZero);
+                return new ErrorResult(Messages.CarDailyPriceInValid);
             }
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
@@ -36,12 +36,12 @@ namespace Business.Concrete
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
-            return new SuccessResult();
+            return new SuccessResult(Messages.CarDeleted);
         }
 
         public IDataResult<List<Car>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll());
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.CarListed);
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
@@ -62,7 +62,7 @@ namespace Business.Concrete
         public IResult Update(Car car)
         {
             _carDal.Update(car);
-            return new SuccessResult();
+            return new SuccessResult(Messages.CarUpdated);
         }
     }
 }
