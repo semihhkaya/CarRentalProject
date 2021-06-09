@@ -39,5 +39,11 @@ namespace Business.Constants
         public static string RentalDeleted = "Kiralama bilgisi silindi";
         public static string RentalReturnDateError = "Araç teslim edilmemiştir.";
         public static string RentalListed = "Kiralama Bilgileri Listelendi";
+        
+        public static string CarImageLimit = "En fazla 5 Araba resmi eklenebilir.";
+        public static string CarImageAdded = "Araba Resmi Eklendi.";
+        public static string CarImageNotFound = "Araba resmi bulunamadı";
+        public static string CarImageDeleted = "Araba resmi silindi";
+        internal static string CarImageUpdated = "Araba resmi güncellendi";
     }
 }
