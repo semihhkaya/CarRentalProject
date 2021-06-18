@@ -25,7 +25,7 @@ namespace Business.Concrete
             _carDal = carDal; //Dependency Injection
         }
 
-        [SecuredOperation("car.add,admin")]
+        //[SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car) //Business Codes and Validation
@@ -79,6 +79,11 @@ namespace Business.Concrete
             }
             Add(car);
             return null;
+        }
+
+        public IDataResult<Car> GetById(int id)
+        {
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.CarId == id));
         }
     }
 }
